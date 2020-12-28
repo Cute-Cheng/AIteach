@@ -15,51 +15,41 @@
 
 </head>
 <body>
-<jsp:include page="WEB-INF/pages/Common/left.jsp"/>
 
-<div class="col-md-10" >
-    <div class="col-md-5 col-md-offset-4">
-        <form class="bs-example bs-example-form " role="form">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="input-group">
-                        <input type="text" value="${name}" class="form-control" placeholder="根据产品名模糊查询" id="name_input">
-                        <span class="input-group-btn">
-                        <button class="btn btn-info" type="button" onclick="seach()">
-                            搜索
-                        </button>
-                    </span>
-                    </div><!-- /input-group -->
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-        </form>
-    </div>
-</div>
+<%--<jsp:include page="WEB-INF/pages/Common/left.jsp"/>--%>
+<jsp:include page="WEB-INF/pages/Common/left-better.jsp"/>
+<section>
+    <jsp:include page="WEB-INF/pages/Common/search.jsp"/>
+    <div class="container-fluid" style="height: auto;margin-top: 20px;margin-bottom: 100px">
+        <div class="row">
+            <c:forEach items="${sessionScope.books}" var="item" varStatus="i">
+                <div class="col-xs-12 col-md-2 ">
 
-<div class="container-fluid">
-    <div class="row">
-        <c:forEach items="${sessionScope.books}" var="item" varStatus="i">
-        <div class="col-xs-12 col-md-2 ">
-
-            <div class="thumbnail" onclick='showDetail(${item.b_id})'>
-            <a>
-                <img src="${item.img_path}"
-                     alt="通用的占位符缩略图">
-            </a>
-            <div id="pdtpri" class="caption">
-                <span>¥</span>
-                <span>${item.b_price}</span>
-            </div>
-            <div id="pdtdtl" class="caption">
-                <a href="/user/login" target="_blank">
-                    <span>${item.b_name}</span>
-                </a>
-            </div>
+                    <div class="thumbnail" onclick='showDetail(${item.b_id})'>
+                        <a>
+                            <img src="${item.img_path}"
+                                 alt="通用的占位符缩略图">
+                        </a>
+                        <div id="pdtpri" class="caption">
+                            <span>¥</span>
+                            <span>${item.b_price}</span>
+                        </div>
+                        <div id="pdtdtl" class="caption">
+                            <a href="/user/login" target="_blank">
+                                <span>${item.b_name}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
         </div>
+
+        <jsp:include page="WEB-INF/pages/Common/page.jsp"/>
+
     </div>
-    </c:forEach>
-</div>
-</div>
+</section>
+
+
 
 <script>
     function showDetail(b_id) {
@@ -67,10 +57,10 @@
         window.location="/book/detail?b_id="+b_id;
     };
 
-    function search() {
+    function seach() {
         let name = document.getElementById("name_input").value;
         console.log(name);
-        window.location="/book/seach?b_name="+name;
+        window.location="/book/search?b_name="+name;
     };
 </script>
 

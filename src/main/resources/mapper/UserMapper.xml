@@ -11,4 +11,12 @@
         </if>
     </select>
 
+    <select id="findById" resultType="user" parameterType="string">
+        select * from user where email = #{value} or u_name=#{value}
+    </select>
+    <select id="findById1" resultType="user" parameterType="string">
+        select * from user where u_password=#{password} and (email=#{email} or u_name=#{email})
+    </select>
+
+
 </mapper>

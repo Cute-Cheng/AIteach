@@ -2,6 +2,7 @@ package czu.qty.bookshop.service.Impl;
 
 import czu.qty.bookshop.mapper.UserMapper;
 import czu.qty.bookshop.pojo.User;
+import czu.qty.bookshop.service.IUserService;
 import czu.qty.bookshop.service.UserService;
 import czu.qty.bookshop.utils.MailSend;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,25 @@ import java.util.List;
  * @create 2020-12-25-22:53
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService,IUserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Override
+    public User login(String email) {
+        User user = userMapper.findById(email);
+        return user;
+    }
+
+    public User login1(String email,String password)
+    {
+        User user=userMapper.findById1(email,password);
+        return user;
+    }
+
+
+
 
     /**
      * 账号密码登录

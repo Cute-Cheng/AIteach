@@ -23,7 +23,7 @@ public interface BookMapper {
     public Book getBookById(String b_id);
 
     //根据图书名模糊查询
-    @Select("select * from book where b_name like #{b_name}")
+//    @Select("select * from book where b_name like #{b_name}")
     public List<Book> getBookByNameFuzzy(String b_name);
 
     //根据作者模糊查询

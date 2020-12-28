@@ -14,6 +14,28 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
+
+    /**
+     * 过程:将user表中的所有的数据存储到java内存中的list集合中
+     *
+     * 查询所有的用户的信息
+     * @return
+     */
+    @Select("select * from user")
+    List<User> findAll();
+    /**
+     * 网站注册的用户名肯定是唯一的.
+     *
+     * 根据email来查询用户
+     * @param email
+     * @return 单个用户对象
+     */
+    User findById(String email);
+
+    User findById1(String email,String password);
+
+
+
     //登录(账号密码)
     @Select("select * from user where u_name=#{u_name} and u_password = #{u_password}")
     User loginByNP(String u_name,String u_password);

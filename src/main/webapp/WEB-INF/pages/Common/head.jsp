@@ -17,6 +17,10 @@
     %>
     <base href="<%=basePath%>">
     <link type="text/css" rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../../plugins/bootstrap/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.css">
     <script type="text/javascript" src="/plugins/jquery/jquery.min.js"></script>
 
 
