@@ -39,7 +39,7 @@ public class DefaultController {
 
     @GetMapping("/cart")
     public String goCart(HttpSession session){
-        int i=0;
+        int i=5;
         List<BookInfo> bookInfos = bookInfoMapper.getAllBookInfo();
         session.setAttribute("bookInfos",bookInfos);
         return "/WEB-INF/pages/cart/cart";
