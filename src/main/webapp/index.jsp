@@ -20,14 +20,14 @@
 <jsp:include page="WEB-INF/pages/Common/left-better.jsp"/>
 <section>
     <jsp:include page="WEB-INF/pages/Common/search.jsp"/>
-    <div class="container-fluid" style="height: auto;margin-top: 20px;margin-bottom: 100px">
+    <div class="container-fluid" style="height: auto;margin-top: 20px;margin-bottom: 100px;width: 90%">
         <div class="row">
             <c:forEach items="${sessionScope.books}" var="item" varStatus="i">
                 <div class="col-xs-12 col-md-2 ">
 
                     <div class="thumbnail" onclick='showDetail(${item.b_id})'>
                         <a>
-                            <img src="${item.img_path}"
+                            <img style="height: 250px;height: 250px" src="${item.img_path}"
                                  alt="通用的占位符缩略图">
                         </a>
                         <div id="pdtpri" class="caption">

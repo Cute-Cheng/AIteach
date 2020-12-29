@@ -13,12 +13,19 @@ import java.util.List;
  */
 @Mapper
 @RequestMapping("/order")
-public interface OrderMapper{  //添加订单
+public interface OrderMapper{
+
+    //添加订单
+
     //删除订单
+
     //查看所有订单
+
     @Select("select * from `order`")
     public List<Order> getAllOrder();
+
     //根据订单id查看订单
+
     //查看订单详情
 
 }

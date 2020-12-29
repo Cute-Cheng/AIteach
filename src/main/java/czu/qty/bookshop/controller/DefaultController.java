@@ -1,15 +1,18 @@
 package czu.qty.bookshop.controller;
 
-import czu.qty.bookshop.mapper.BookInfoMapper;
-import czu.qty.bookshop.mapper.BookKindMapper;
-import czu.qty.bookshop.mapper.BookMapper;
 import czu.qty.bookshop.pojo.Book;
 import czu.qty.bookshop.pojo.BookInfo;
 import czu.qty.bookshop.pojo.BookKind;
+import czu.qty.bookshop.service.IBookInfoService;
+import czu.qty.bookshop.service.IBookKindService;
+import czu.qty.bookshop.service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -20,19 +23,19 @@ import java.util.List;
 public class DefaultController {
 
     @Autowired
-    private BookKindMapper bookKindMapper;
+    private IBookKindService bookKindService;
 
     @Autowired
-    private BookMapper bookMapper;
+    private IBookService bookService;
 
     @Autowired
-    private BookInfoMapper bookInfoMapper;
+    private IBookInfoService bookInfoService;
 
     @GetMapping("/index")
     public String indexPage(HttpSession session){
-        List<BookKind> kinds = bookKindMapper.getAllBookKind();
+        List<BookKind> kinds = bookKindService.getAllBookKind();
         session.setAttribute("kinds",kinds);
-        List<Book> allBook = bookMapper.getAllBook();
+        List<Book> allBook = bookService.getAllBook();
         session.setAttribute("books",allBook);
         return "/index";
     }
@@ -40,7 +43,7 @@ public class DefaultController {
     @GetMapping("/cart")
     public String goCart(HttpSession session){
         int i=7;
-        List<BookInfo> bookInfos = bookInfoMapper.getAllBookInfo();
+        List<BookInfo> bookInfos = bookInfoService.getAllBookInfo();
         session.setAttribute("bookInfos",bookInfos);
         return "/WEB-INF/pages/cart/cart";
     }
@@ -50,8 +53,11 @@ public class DefaultController {
         return "/WEB-INF/pages/cart/cart";
     }
 
+    @RequestMapping("/paging")
+    public String getPaging(Integer typeId, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "3") Integer pageSize, HttpServletRequest request){
 
 
-
+        return "";
+    }
 
 }

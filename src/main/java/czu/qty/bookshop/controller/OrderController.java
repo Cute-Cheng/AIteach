@@ -2,6 +2,7 @@ package czu.qty.bookshop.controller;
 
 import czu.qty.bookshop.mapper.OrderMapper;
 import czu.qty.bookshop.pojo.Order;
+import czu.qty.bookshop.service.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +19,11 @@ import java.util.List;
 public class OrderController {
 
     @Autowired
-    private OrderMapper orderMapper;
+    private IOrderService orderService;
 
     @GetMapping("/index")
     public String showAllOrder(HttpSession session){
-        List<Order> orders = orderMapper.getAllOrder();
+        List<Order> orders = orderService.getAllOrder();
         session.setAttribute("orders",orders);
         return "/WEB-INF/pages/order/order";
     }

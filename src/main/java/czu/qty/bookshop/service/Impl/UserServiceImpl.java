@@ -4,7 +4,6 @@ import czu.qty.bookshop.mapper.UserMapper;
 import czu.qty.bookshop.pojo.User;
 import czu.qty.bookshop.service.IUserService;
 import czu.qty.bookshop.service.UserService;
-import czu.qty.bookshop.utils.MailSend;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,9 +29,6 @@ public class UserServiceImpl implements UserService,IUserService {
         User user=userMapper.findById1(email,password);
         return user;
     }
-
-
-
 
     /**
      * 账号密码登录
