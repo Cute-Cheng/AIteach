@@ -11,4 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Favourite {
+
+    private Integer id;
+    private Integer u_id;
+    private String b_id;
+
 }
