@@ -22,12 +22,12 @@
 
 <jsp:include page="/WEB-INF/pages/Common/left-better.jsp"/>
 <section>
-    <div class="container-fluid"style="text-align: center">
+    <div class="container-fluid">
         <div class="row">
             <%--        <div th:replace="~{commons/bar::sidebar(activeUri='emps')}"></div>--%>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <h2>我的订单</h2>
-                <h3><a class="btn btn-sm btn-success" href="emp" th:href="#">去我的购物车</a></h3>
+                <h3><a class="btn btn-default btn-success" href="emp" th:href="#">去我的购物车</a></h3>
                 <div class="table-responsive">
                     <table class="table table-striped table-sm" align="center">
                         <thead>
@@ -47,9 +47,9 @@
                             <td th:text="${emp.lastName}">2020-10-11</td>
                             <td th:text="${dates.format(emp.birth,'yyyy-MM-dd')}">150</td>
                             <td >
-                                <a class="btn btn-sm btn-primary" href="/order/getDetail">详情</a>
+                                <a class="btn btn-lg btn-default" href="/order/getDetail">详情</a>
 
-                                <button th:attr="#+${emp.id}" type="submit" class="btn btn-sm btn-danger deleteBtn">删除</button>
+                                <button th:attr="#+${emp.id}" type="submit" class="btn btn-lg btn-danger deleteBtn">删除</button>
                             </td>
                         </tr>
 
@@ -59,9 +59,9 @@
                             <td th:text="${emp.lastName}">2020-10-12</td>
                             <td th:text="${#dates.format(emp.birth,'yyyy-MM-dd')}">180</td>
                             <td >
-                                <a class="btn btn-sm btn-primary" th:href="@{/emp/}+${emp.id}">详情</a>
+                                <a class="btn btn-lg btn-default" th:href="@{/emp/}+${emp.id}">详情</a>
 
-                                <button th:attr="del_Uri=@{/emp/}+${emp.id}" type="submit" class="btn btn-sm btn-danger deleteBtn">删除</button>
+                                <button th:attr="del_Uri=@{/emp/}+${emp.id}" type="submit" class="btn btn-lg btn-danger deleteBtn">删除</button>
                             </td>
                         </tr>
 
