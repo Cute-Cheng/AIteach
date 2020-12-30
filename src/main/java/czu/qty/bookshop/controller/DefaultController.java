@@ -56,7 +56,7 @@ public class DefaultController {
     @RequestMapping("/paging")
     public String getPaging(Integer typeId, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "3") Integer pageSize, HttpServletRequest request){
 
-
+//你妹的
         return "";
     }
 
